@@ -25,5 +25,5 @@ Then use command ```make run``` to run module
 
 Base url: ```<DOMAIN>:8001/api/```
 
-# Email sample
+## Email sample
 ![image](https://user-images.githubusercontent.com/64990498/204975828-9b71eebd-f20a-4c4e-ac0d-8df81288e130.png)
