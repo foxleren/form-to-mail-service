@@ -1,4 +1,4 @@
-port: "7999"
+port: "8001"
 
 smtp:
   port: "25"
