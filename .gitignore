@@ -53,3 +53,4 @@ dkms.conf
 /.env
 /certificate.crt
 /private.key
+/.idea
