@@ -1,56 +1,21 @@
-# Prerequisites
-*.d
-
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
+idea
+.bin
+# Binaries for programs and plugins
+*.exe
+*.exe~
 *.dll
 *.so
-*.so.*
 *.dylib
 
-# Executables
-*.exe
+# Test binary, built with `go foxle -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-*.app
-*.i*86
-*.x86_64
-*.hex
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+#Env files
 /.env
-/certificate.crt
+
+#Certificates
 /private.key
-/.idea
+/certificate.crt
