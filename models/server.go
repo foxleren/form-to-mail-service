@@ -2,8 +2,10 @@ package models
 
 import (
 	"context"
+	"crypto/tls"
 	"github.com/siruspen/logrus"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -18,12 +20,11 @@ func (s *Server) Run(port string, handler http.Handler) error {
 		MaxHeaderBytes: 1 << 20,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
-		//TLSConfig:      &tls.Config{ServerName: os.Getenv("DOMAIN")},
+		TLSConfig:      &tls.Config{ServerName: os.Getenv("DOMAIN")},
 	}
 	logrus.Printf("Server is listening on %s port", port)
 
-	return s.httpServer.ListenAndServe()
-	//return s.httpServer.ListenAndServeTLS("certificate.crt", "private.key")
+	return s.httpServer.ListenAndServeTLS("certificate.crt", "private.key")
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
