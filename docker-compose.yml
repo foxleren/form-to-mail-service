@@ -1,0 +1,7 @@
+version: '2.0'
+
+services:
+  form-to-mail-service:
+    build: ./
+    ports:
+      - 8001:8001
