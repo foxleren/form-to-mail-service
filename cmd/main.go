@@ -8,7 +8,10 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/siruspen/logrus"
 	"github.com/spf13/viper"
+	"golang.org/x/net/context"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
@@ -32,8 +35,22 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	srv := new(models.Server)
-	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
-		logrus.Fatalf("Error while running http server: ", err.Error())
+
+	go func() {
+		if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
+			logrus.Fatalf("Error while running http server: ", err.Error())
+		}
+	}()
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
+	<-quit
+
+	logrus.Println("Server shutting down")
+
+	err := srv.Shutdown(context.Background())
+	if err != nil {
+		logrus.Errorf("Error while shutting down http server: ", err.Error())
 	}
 }
 
