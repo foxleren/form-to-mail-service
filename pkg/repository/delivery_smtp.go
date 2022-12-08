@@ -25,6 +25,7 @@ func (p *DeliverySMTP) SendEmail(customer *models.Customer) error {
 	if err := smtp.SendMail(p.config.Host+":"+p.config.Port, auth, from, []string{to}, []byte(email)); err != nil {
 		return err
 	}
+	
 	return nil
 }
 
