@@ -15,8 +15,8 @@ func NewDeliverySMTP(config *SMTPConfig) *DeliverySMTP {
 }
 
 func (p *DeliverySMTP) SendEmail(customer *models.Customer) error {
-	from, to := p.config.EmailAddress, p.config.EmailAddress
-	password := p.config.Password
+	from, to := p.config.SenderEmail, p.config.ReceiverEmail
+	password := p.config.SenderPassword
 
 	auth := smtp.PlainAuth("", from, password, p.config.Host)
 
@@ -25,7 +25,7 @@ func (p *DeliverySMTP) SendEmail(customer *models.Customer) error {
 	if err := smtp.SendMail(p.config.Host+":"+p.config.Port, auth, from, []string{to}, []byte(email)); err != nil {
 		return err
 	}
-	
+
 	return nil
 }
 

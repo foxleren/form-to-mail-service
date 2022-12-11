@@ -25,10 +25,11 @@ func main() {
 	}
 
 	repos := repository.NewRepository(&repository.SMTPConfig{
-		EmailAddress: os.Getenv("SMTP_EMAIL"),
-		Password:     os.Getenv("SMTP_PASSWORD"),
-		Host:         "smtp.yandex.ru",
-		Port:         viper.GetString("smtp.port"),
+		SenderEmail:    os.Getenv("SMTP_EMAIL"),
+		SenderPassword: os.Getenv("SMTP_PASSWORD"),
+		ReceiverEmail:  os.Getenv("RECEIVER_EMAIL"),
+		Host:           "smtp.yandex.ru",
+		Port:           viper.GetString("smtp.port"),
 	})
 
 	services := service.NewService(repos)

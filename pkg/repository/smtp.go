@@ -1,8 +1,9 @@
 package repository
 
 type SMTPConfig struct {
-	EmailAddress string
-	Password     string
-	Host         string
-	Port         string
+	SenderEmail    string
+	SenderPassword string
+	ReceiverEmail  string
+	Host           string
+	Port           string
 }
