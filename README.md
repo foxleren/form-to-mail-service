@@ -14,13 +14,15 @@ Before running you need to place ```.env``` file and your TLS certificates ```ce
 Sample file:
 **.env**
 ```(e)
-DOMAIN=localhost
+DOMAIN=domen.com
 SMTP_EMAIL=mail@ya.ru
 SMTP_PASSWORD=password
 RECEIVER_EMAIL=mail@ya.ru
 ```
 
-Then use command ```make run``` to run module
+```RECEIVER_EMAIL``` supports **any** mail services, like Gmail.
+
+Then use command ```make run``` to run module.
 
 ## API
 
