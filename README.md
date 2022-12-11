@@ -17,6 +17,7 @@ Sample file:
 DOMAIN=localhost
 SMTP_EMAIL=mail@ya.ru
 SMTP_PASSWORD=password
+RECEIVER_EMAIL=mail@ya.ru
 ```
 
 Then use command ```make run``` to run module
